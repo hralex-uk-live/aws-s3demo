@@ -13,3 +13,9 @@ https://repo1.maven.org/maven2/software/amazon/awssdk/utils/
 https://repo1.maven.org/maven2/software/amazon/awssdk/core/
 
 https://repo1.maven.org/maven2/software/amazon/awssdk/sdk-core/
+
+https://repo1.maven.org/maven2/software/amazon/awssdk/apache-client/
+
+https://repo1.maven.org/maven2/software/amazon/awssdk/url-connection-client/
+
+https://repo1.maven.org/maven2/software/amazon/awssdk/netty-nio-client/
