@@ -1,0 +1,23 @@
+<project name="AWS-S3-App" default="resolve" xmlns:ivy="antlib:org.apache.ivy.ant">
+
+    <!-- Define Paths -->
+    <property name="lib.dir" value="lib" />
+    <path id="ivy.lib.path">
+        <fileset dir="${lib.dir}" includes="ivy-*.jar"/>
+    </path>
+
+    <!-- Load Ivy -->
+    <taskdef resource="org/apache/ivy/ant/antlib.xml" classpathref="ivy.lib.path"/>
+
+    <!-- Resolve Dependencies -->
+    <target name="resolve">
+        <mkdir dir="lib" />
+        <ivy:retrieve pattern="lib/[artifact]-[revision].[ext]" />
+    </target>
+
+    <!-- Compile Code -->
+    <target name="compile" depends="resolve">
+        <mkdir dir="bin" />
+        <javac srcdir="src" destdir="bin" classpath="lib/*" />
+    </target>
+</project>
