@@ -5,3 +5,9 @@ https://repo1.maven.org/maven2/software/amazon/awssdk/bom/
 https://repo1.maven.org/maven2/software/amazon/awssdk/regions/
 
 https://repo1.maven.org/maven2/software/amazon/awssdk/auth/
+
+https://repo1.maven.org/maven2/software/amazon/awssdk/aws-core/
+
+https://repo1.maven.org/maven2/software/amazon/awssdk/utils/
+
+https://repo1.maven.org/maven2/software/amazon/awssdk/core/
