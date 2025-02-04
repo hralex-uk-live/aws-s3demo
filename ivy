@@ -1,0 +1,25 @@
+<ivy-module version="2.0">
+    <info organisation="com.mycompany" module="aws-s3-app" />
+    <dependencies>
+        <!-- AWS SDK for S3 -->
+        <dependency org="software.amazon.awssdk" name="s3" rev="2.20.67" />
+        <dependency org="software.amazon.awssdk" name="core" rev="2.20.67" />
+        <dependency org="software.amazon.awssdk" name="auth" rev="2.20.67" />
+        <dependency org="software.amazon.awssdk" name="regions" rev="2.20.67" />
+        <dependency org="software.amazon.awssdk" name="http-client-spi" rev="2.20.67" />
+        <dependency org="software.amazon.awssdk" name="apache-client" rev="2.20.67" />
+        
+        <!-- Apache HttpClient -->
+        <dependency org="org.apache.httpcomponents" name="httpclient" rev="4.5.13" />
+        <dependency org="org.apache.httpcomponents" name="httpcore" rev="4.4.14" />
+
+        <!-- Jackson for JSON Parsing -->
+        <dependency org="com.fasterxml.jackson.core" name="jackson-databind" rev="2.15.2" />
+        <dependency org="com.fasterxml.jackson.core" name="jackson-core" rev="2.15.2" />
+        <dependency org="com.fasterxml.jackson.core" name="jackson-annotations" rev="2.15.2" />
+
+        <!-- Logging (SLF4J) -->
+        <dependency org="org.slf4j" name="slf4j-api" rev="1.7.36" />
+        <dependency org="org.slf4j" name="slf4j-simple" rev="1.7.36" />
+    </dependencies>
+</ivy-module>
