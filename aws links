@@ -31,3 +31,5 @@ https://repo1.maven.org/maven2/software/amazon/awssdk/aws-xml-protocol/
 https://repo1.maven.org/maven2/org/slf4j/slf4j-simple/
 
 https://repo1.maven.org/maven2/org/slf4j/slf4j-api/
+
+https://repo1.maven.org/maven2/org/apache/httpcomponents/core5/httpcore5/5.3.3/
