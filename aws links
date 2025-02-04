@@ -26,6 +26,8 @@ https://repo1.maven.org/maven2/software/amazon/awssdk/profiles/
 
 https://repo1.maven.org/maven2/org/slf4j/slf4j-jdk14/
 
+https://repo1.maven.org/maven2/software/amazon/awssdk/aws-xml-protocol/
+
 https://repo1.maven.org/maven2/org/slf4j/slf4j-simple/
 
 https://repo1.maven.org/maven2/org/slf4j/slf4j-api/
