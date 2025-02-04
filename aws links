@@ -21,3 +21,5 @@ https://repo1.maven.org/maven2/software/amazon/awssdk/url-connection-client/
 https://repo1.maven.org/maven2/software/amazon/awssdk/netty-nio-client/
 
 https://repo1.maven.org/maven2/software/amazon/awssdk/http-client-spi/
+
+https://repo1.maven.org/maven2/software/amazon/awssdk/profiles/
