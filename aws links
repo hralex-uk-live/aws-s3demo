@@ -23,3 +23,5 @@ https://repo1.maven.org/maven2/software/amazon/awssdk/netty-nio-client/
 https://repo1.maven.org/maven2/software/amazon/awssdk/http-client-spi/
 
 https://repo1.maven.org/maven2/software/amazon/awssdk/profiles/
+
+https://repo1.maven.org/maven2/org/slf4j/slf4j-jdk14/
