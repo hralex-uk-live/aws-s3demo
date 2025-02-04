@@ -1,0 +1,35 @@
+package com.example.aws;
+
+import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.*;
+
+public class S3Service {
+    private final S3Client s3Client;
+
+    public S3Service() {
+        this.s3Client = S3Client.builder()
+                .region(Region.US_EAST_1) // Change to your region
+                .credentialsProvider(ProfileCredentialsProvider.create()) // Uses ~/.aws/credentials
+                .build();
+    }
+
+    public void listBuckets() {
+        System.out.println("Listing S3 Buckets:");
+        ListBucketsResponse bucketsResponse = s3Client.listBuckets();
+        for (Bucket bucket : bucketsResponse.buckets()) {
+            System.out.println(" - " + bucket.name());
+        }
+    }
+
+    public void listObjects(String bucketName) {
+        System.out.println("Listing objects in bucket: " + bucketName);
+        ListObjectsV2Request listReq = ListObjectsV2Request.builder().bucket(bucketName).build();
+        ListObjectsV2Response listRes = s3Client.listObjectsV2(listReq);
+
+        for (S3Object obj : listRes.contents()) {
+            System.out.println(" - " + obj.key() + " (Size: " + obj.size() + " bytes)");
+        }
+    }
+}
