@@ -1,0 +1,3 @@
+<copy todir="lib">
+            <fileset dir="lib-extra" includes="**/*.jar"/>
+        </copy>
