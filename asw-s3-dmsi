@@ -1,0 +1,25 @@
+AWS S3 Access Using DSMI (Directory Service Managed Identity)
+If your organisation uses AWS Directory Service Managed Identity (DSMI) to authenticate users via Active Directory (AD), you need to authenticate using an IAM role linked to your DSMI identity.
+
+aws sso login --profile your-dsmi-profile
+
+DefaultCredentialsProvider.create() automatically retrieves DSMI credentials linked to the logged-in user.
+AWS CLI needs to be authenticated using aws sso login before running the Java application.
+IAM roles assigned to your DSMI user must have S3 permissions.
+
+import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.*;
+
+
+    private final S3Client s3Client;
+
+    public S3Service() {
+        // DefaultCredentialsProvider will automatically use DSMI authentication
+        this.s3Client = S3Client.builder()
+                .region(Region.US_EAST_1) // Change this to your region
+                .credentialsProvider(DefaultCredentialsProvider.create()) // DSMI Auth
+                .build();
+    }
+
