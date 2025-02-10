@@ -1,0 +1,41 @@
+import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
+import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.ListBucketsResponse;
+import software.amazon.awssdk.services.s3.model.Bucket;
+import software.amazon.awssdk.services.s3.S3Configuration;
+import java.net.URI;
+
+public class PrivateS3Client {
+    private final S3Client s3Client;
+
+    public PrivateS3Client() {
+        String endpoint = "https://your-private-server.com"; // Private S3 server
+        String accessKey = "your-access-key";
+        String secretKey = "your-secret-key";
+
+        this.s3Client = S3Client.builder()
+                .region(Region.US_EAST_1) // Choose any region (not enforced in private S3)
+                .credentialsProvider(StaticCredentialsProvider.create(
+                        AwsBasicCredentials.create(accessKey, secretKey)))
+                .endpointOverride(URI.create(endpoint)) // Custom S3 endpoint
+                .serviceConfiguration(S3Configuration.builder()
+                        .pathStyleAccessEnabled(true) // Required for MinIO & some private S3 servers
+                        .build())
+                .build();
+    }
+
+    public void listBuckets() {
+        System.out.println("Listing S3 Buckets:");
+        ListBucketsResponse response = s3Client.listBuckets();
+        for (Bucket bucket : response.buckets()) {
+            System.out.println(" - " + bucket.name());
+        }
+    }
+
+    public static void main(String[] args) {
+        PrivateS3Client s3Service = new PrivateS3Client();
+        s3Service.listBuckets();
+    }
+}
